@@ -1,8 +1,4 @@
-import {
-  ClassSerializerInterceptor,
-  Module,
-  ValidationPipe,
-} from '@nestjs/common';
+import { ClassSerializerInterceptor, Module, ValidationPipe } from '@nestjs/common';
 import { APP_FILTER, APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
 import { DatabaseModule } from 'src/modules/database/database.module';
 import { EnvModule } from 'src/modules/env/env.module';
@@ -19,6 +15,7 @@ import { RedisConfigFactory } from '../../modules/cache/redis/redis.factory';
 import { ExperienceModule } from './experience/experience.module';
 import { ResumesModule } from './resumes/resumes.module';
 import { TestModule } from './test/test.module';
+import { CapabilityModule } from './capability/capability.module';
 
 @Module({
   controllers: [AppController],
@@ -38,6 +35,7 @@ import { TestModule } from './test/test.module';
     ExperienceModule,
     ResumesModule,
     TestModule,
+    CapabilityModule,
   ],
   providers: [
     {
