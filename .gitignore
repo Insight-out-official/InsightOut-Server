@@ -41,3 +41,6 @@ lerna-debug.log*
 #prisma
 prisma/*
 !prisma/schema.prisma
+
+# intelij
+.idea

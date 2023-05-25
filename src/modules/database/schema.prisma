@@ -27,6 +27,7 @@ model User {
   UserInfo UserInfo?
   Resume   Resume[]
   Experiences   Experience[]
+  Capabilities   Capability[]
 
   @@map("user")
 }
@@ -119,6 +120,7 @@ model Experience {
 
   User User @relation(references: [id], fields: [userId])
   experienceInfo ExperienceInfo?
+  capabilities ExperiencesOnCapabilities[]
 
   @@map("experience")
 }
@@ -148,4 +150,32 @@ model ExperienceInfo {
   experience Experience @relation(references: [id], fields: [experienceId])
 
   @@map("experience_info")
+}
+
+// ********************************
+// ******* 직무 역량 키워드 *******
+// ********************************
+model Capability {
+  id Int @id @default(autoincrement()) @map("id")// 직무 역량 키워드 id
+  keyword String? @db.VarChar(20) // 직무 역량 키워드
+
+  userId Int @map("user_id")
+
+  User User @relation(references: [id], fields: [userId])
+  experiences ExperiencesOnCapabilities[]
+  @@map("capability")
+}
+
+// ********************************
+// ** 직무 역량 키워드 N: M 경험 **
+// ********************************
+model ExperiencesOnCapabilities{
+  experience       Experience     @relation(fields: [experienceId], references: [id]) 
+  experienceId     Int  @map("experience_id")
+  capability   Capability @relation(fields: [capabilityId], references: [id])
+  capabilityId Int @map("capability_id")
+
+  @@id([experienceId, capabilityId])
+
+  @@map("experince_capability")
 }
