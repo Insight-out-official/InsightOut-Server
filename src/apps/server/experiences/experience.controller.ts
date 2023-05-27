@@ -40,7 +40,9 @@ export class ExperienceController {
     description: '경험 카드 생성 실패 타입 확인해주세요 :)',
     type: CreateExperienceInfoUnprocessableErrorResDto,
   })
-  public async createExperienceInfo(@Body(ValidationPipe) body: CreateExperienceInfoReqDto, @User() user: UserJwtToken) {
+  public async createExperienceInfo(@Body() body: CreateExperienceInfoReqDto, @User() user: UserJwtToken) {
+    console.log('1', 1);
+    console.log('@@@@@@@body', body);
     const experience = await this.experienceService.createExperienceInfo(body, user);
 
     return ResponseEntity.CREATED_WITH_DATA(experience);

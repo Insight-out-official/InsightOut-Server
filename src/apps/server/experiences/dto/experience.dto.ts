@@ -11,18 +11,18 @@ export class ExperinceDto {
   @Expose()
   id: number;
 
+  @Expose()
   @ApiPropertyOptional({ example: '00직무 디자인 인턴' })
   @IsString()
   @IsOptional()
-  @Expose()
-  title?: string | null;
+  title?: string;
 
   @ApiPropertyOptional({ example: '2022-01' })
   @IsString()
   @IsOptional()
   @Expose()
   @Matches(/^(19|20|21)\d{2}-(0[1-9]|1[012])$/)
-  startDate?: string | null;
+  startDate?: string;
 
   @ApiPropertyOptional({ example: '2022-07' })
   @IsString()
