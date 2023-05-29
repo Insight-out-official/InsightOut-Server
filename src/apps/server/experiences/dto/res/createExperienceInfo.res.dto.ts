@@ -52,8 +52,8 @@ export class CreateExperienceInfoResDto {
 export class CreateExperienceResDto {
   @Exclude() private readonly _experienceId: number;
   @Exclude() private readonly _title: string;
-  @Exclude() private readonly _startDate: string;
-  @Exclude() private readonly _endDate: string;
+  @Exclude() private readonly _startDate: Date;
+  @Exclude() private readonly _endDate: Date;
   @Exclude() private readonly _experienceInfo: CreateExperienceInfoResDto;
 
   constructor(experience: Experience, experienceInfo: ExperienceInfo) {
@@ -85,14 +85,14 @@ export class CreateExperienceResDto {
   @ApiPropertyOptional({ example: '2022-01' })
   @IsOptionalString(0, 7)
   @Matches(dateValidation.YYYY_MM)
-  get startDate(): string {
+  get startDate(): Date {
     return this._startDate;
   }
 
   @ApiPropertyOptional({ example: '2022-07' })
   @IsOptionalString(0, 7)
   @Matches(dateValidation.YYYY_MM)
-  get endDate(): string {
+  get endDate(): Date {
     return this._endDate;
   }
 

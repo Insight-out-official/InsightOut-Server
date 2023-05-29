@@ -136,8 +136,8 @@ model Experience {
   action    String? @db.VarChar(100) // A: Action, 행동
   result    String? @db.VarChar(100) // R: Result, 결과
 
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  createdAt DateTime @db.Timestamptz @default(now()) @map("created_at")
+  updatedAt DateTime @db.Timestamptz @updatedAt @map("updated_at")
 
   userId Int @map("user_id")
 

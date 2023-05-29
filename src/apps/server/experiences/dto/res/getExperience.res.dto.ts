@@ -62,8 +62,8 @@ export class GetExperienceInfoResDto {
 export class GetExperienceResDto {
   @Exclude() _id: number;
   @Exclude() _title: string;
-  @Exclude() _startDate: string;
-  @Exclude() _endDate: string;
+  @Exclude() _startDate: Date;
+  @Exclude() _endDate: Date;
   @Exclude() _experienceStatus: ExperienceStatus;
   @Exclude() _situation: string;
   @Exclude() _task: string;
@@ -103,14 +103,14 @@ export class GetExperienceResDto {
   @ApiPropertyOptional({ example: '2022-01' })
   @IsOptionalString(0, 7)
   @Matches(dateValidation.YYYY_MM)
-  get startDate(): string {
+  get startDate(): Date {
     return this._startDate;
   }
 
   @ApiPropertyOptional({ example: '2022-07' })
   @IsOptionalString(0, 7)
   @Matches(dateValidation.YYYY_MM)
-  get endDate(): string {
+  get endDate(): Date {
     return this._endDate;
   }
 
