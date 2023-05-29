@@ -11,6 +11,6 @@ COPY . .
 
 RUN yarn prisma generate
 
-EXPOSE 5000
+EXPOSE 3000
 
 ENTRYPOINT [ "yarn", "dev" ]
