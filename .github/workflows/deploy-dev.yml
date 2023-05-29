@@ -8,8 +8,8 @@ on:
 env:
   AWS_REGION: ap-northeast-2
   ECR_REPOSITORY: insightout-dev
-  APPLICATION_NAME: insight-out-eb-dev
-  ENVIRONMENT_NAME: Insight-out-eb-dev-env
+  APPLICATION_NAME: insightout-eb-dev
+  ENVIRONMENT_NAME: Insightout-eb-dev-env
 
 jobs:
   deploy:
