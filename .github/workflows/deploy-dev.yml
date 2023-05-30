@@ -9,7 +9,7 @@ env:
   AWS_REGION: ap-northeast-2
   ECR_REPOSITORY: insightout-dev
   APPLICATION_NAME: insightout-eb-dev
-  ENVIRONMENT_NAME: Insightout-eb-dev-env
+  ENVIRONMENT_NAME: Insightout-eb-dev-env-1
 
 jobs:
   deploy:
@@ -34,7 +34,7 @@ jobs:
       - name: Create .env file
         run: |
           touch .env
-          echo PORT=3000 >> .env
+          echo PORT=8000 >> .env
           echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
           echo GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }} >> .env
           echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
