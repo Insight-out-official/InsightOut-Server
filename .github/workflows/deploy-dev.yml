@@ -9,7 +9,7 @@ env:
   AWS_REGION: ap-northeast-2
   ECR_REPOSITORY: insightout-dev
   APPLICATION_NAME: insightout-eb-dev
-  ENVIRONMENT_NAME: Insightout-eb-dev-env-1
+  ENVIRONMENT_NAME: Insightout-eb-dev-env-2
 
 jobs:
   deploy:
