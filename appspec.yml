@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source:  /
-    destination: /home/ubuntu/13th-4team-backend
+    destination: /home/ec2-user/13th-4team-backend
 
 permissions:
   - object: /
