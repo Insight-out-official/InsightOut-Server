@@ -46,7 +46,7 @@ jobs:
           yarn run build
 
       - name: zip file
-        run: zip -qq -r ./${{ env.GITHUB_SHA }}.zip . -x "node_modules/*"
+        run: zip -qq -r ${{ env.GITHUB_SHA }}.zip . -x "node_modules/*"
 
         # run: zip -r hous.zip ./dist ./scripts ./appspec.yml ./.env ./package.json
 
@@ -58,7 +58,7 @@ jobs:
           aws-region: ap-northeast-2
 
       - name: upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./${{ env.GITHUB_SHA }}.zip s3://insight-out-cicd-test/deploy/
+        run: aws s3 cp --region ap-northeast-2 ${{ env.GITHUB_SHA }}.zip s3://insight-out-cicd-test/deploy/
 
       - name: deploy with AWS codeDeploy
         run: aws deploy create-deployment
