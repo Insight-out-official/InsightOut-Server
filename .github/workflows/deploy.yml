@@ -65,4 +65,4 @@ jobs:
           --application-name insight-out-stage
           --deployment-config-name CodeDeployDefault.OneAtATime
           --deployment-group-name insight-out-stage
-          --s3-location bucket=insight-out-cicd-test,bundleType=zip,key=deploy/hous.zip
+          --s3-location bucket=insight-out-cicd-test,bundleType=zip,key=deploy/${{ env.GITHUB_SHA }}.zip
