@@ -67,5 +67,5 @@ jobs:
         run: aws deploy create-deployment
           --application-name insight-out-stage
           --deployment-config-name CodeDeployDefault.OneAtATime
-          --deployment-group-name GROUP
+          --deployment-group-name insight-out-stage
           --s3-location bucket=insight-out-cicd-test,bundleType=zip,key=deploy/hous.zip
