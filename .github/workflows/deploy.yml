@@ -5,9 +5,9 @@ name: deploy
 
 on:
   push:
-    branches: [dev, feature/#85/PID-85/infra]
+    # branches: [dev]
   pull_request:
-    branches: [dev]
+    # branches: [dev]
 
 jobs:
   build:
@@ -16,11 +16,6 @@ jobs:
     steps:
       - name: Checkout source code.
         uses: actions/checkout@v3
-
-      # - name: Use Node.js ${{ matrix.node-version }}
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     node-version: ${{ matrix.node-version }}
 
       - name: Check Npm -v
         run: npm -v
@@ -52,9 +47,6 @@ jobs:
 
       - name: zip file
         run: zip -r hous.zip ./dist ./scripts ./appspec.yml ./.env ./package.json
-
-      # - name: yarn install
-      #   run: yarn
 
       - name: AWS configure credentials
         uses: aws-actions/configure-aws-credentials@v1
